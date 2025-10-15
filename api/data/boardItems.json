@@ -1,0 +1,53 @@
+[
+  {
+    "id": "ehr-item-1",
+    "type": "ehr",
+    "x": 3200,
+    "y": 3200,
+    "width": 550,
+    "height": 450,
+    "content": "EHR Data",
+    "color": "#e8f5e8",
+    "rotation": 0,
+    "ehrData": {
+      "encounter_id": "enc_2025_03_18_rheum_001",
+      "source_system": "OracleHealth EHR",
+      "patient": {
+        "id": "pt_000392",
+        "mrn": "MRN-7342291",
+        "name": "John McAllister",
+        "dob": "1972-06-22",
+        "age": 52,
+        "sex": "Male"
+      },
+      "encounter_metadata": {
+        "date": "2025-03-18",
+        "time": "10:30",
+        "type": "Outpatient",
+        "clinic": "Rheumatology Clinic A",
+        "location": "Summit Medical Center, 4F",
+        "clinician": "Dr. Elizabeth Hayes",
+        "specialty": "Rheumatology",
+        "visit_reason": "RA disease activity reassessment and methotrexate monitoring"
+      }
+    }
+  },
+  {
+    "id": "item-1760045336726-ycst0r",
+    "type": "todo",
+    "x": 5295,
+    "y": 4341,
+    "width": 420,
+    "height": 200,
+    "content": "Todo List",
+    "color": "#ffffff",
+    "rotation": 0,
+    "todoData": {
+      "title": "Patient Follow-Ups",
+      "description": "",
+      "todos": []
+    },
+    "createdAt": "2025-10-09T21:28:56.726Z",
+    "updatedAt": "2025-10-09T21:28:56.752Z"
+  }
+]

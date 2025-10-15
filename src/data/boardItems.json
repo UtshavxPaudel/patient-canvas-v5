@@ -1,0 +1,1014 @@
+[
+  {
+    "id": "dashboard-item-1759853783245-patient-context",
+    "type": "component",
+    "x": 100,
+    "y": 100,
+    "width": 1600,
+    "height": "auto",
+    "componentType": "PatientContext",
+    "color": "#ffffff",
+    "description": "",
+    "content": {
+      "title": "Patient Context",
+      "component": "PatientContext",
+      "props": {
+        "patientData": {
+          "patient": {
+            "name": "Sarah Miller",
+            "age": 63,
+            "sex": "Female",
+            "age_at_first_encounter": 53,
+            "identifiers": {
+              "mrn": "MC-001001"
+            }
+          },
+          "riskLevel": "high",
+          "primaryDiagnosis": "Rheumatoid arthritis",
+          "problem_list": [
+            {
+              "name": "Rheumatoid arthritis",
+              "status": "active"
+            },
+            {
+              "name": "Essential hypertension",
+              "status": "active"
+            },
+            {
+              "name": "Mild chronic kidney disease",
+              "status": "active"
+            }
+          ],
+          "medication_timeline": [
+            {
+              "name": "Methotrexate",
+              "dose": "20 mg",
+              "route": "PO",
+              "frequency": "weekly",
+              "start": "2018-09-05"
+            },
+            {
+              "name": "Folic Acid",
+              "dose": "5 mg",
+              "route": "PO",
+              "frequency": "weekly",
+              "start": "2015-08-10"
+            },
+            {
+              "name": "Lisinopril",
+              "dose": "10 mg",
+              "route": "PO",
+              "frequency": "daily",
+              "start": "2018-09-05"
+            },
+            {
+              "name": "Trimethoprim-Sulfamethoxazole",
+              "dose": "800/160 mg",
+              "route": "PO",
+              "frequency": "BID",
+              "start": "2025-06-15",
+              "end": "2025-06-25"
+            }
+          ],
+          "allergies": [
+            "Penicillin (rash)"
+          ]
+        }
+      }
+    },
+    "createdAt": "2025-10-14T16:16:23.245Z",
+    "updatedAt": "2025-10-14T16:16:23.245Z"
+  },
+  {
+    "id": "dashboard-item-1759906076097-encounter-timeline",
+    "type": "component",
+    "x": 100,
+    "y": 700,
+    "width": 1600,
+    "height": "auto",
+    "componentType": "EncounterTimeline",
+    "color": "#ffffff",
+    "description": "",
+    "content": {
+      "title": "Patient Encounter Timeline",
+      "component": "EncounterTimeline",
+      "props": {
+        "encounters": [
+          {
+            "encounter_no": 1,
+            "date": "2015-08-10",
+            "type": "Rheumatology Initial Consult",
+            "provider": "Dr. Elizabeth Hayes",
+            "diagnosis": "Seropositive Rheumatoid Arthritis (active)",
+            "medications": [
+              "Methotrexate 10mg weekly",
+              "Folic Acid 5mg weekly"
+            ],
+            "notes": "Started MTX therapy with folic acid supplementation"
+          },
+          {
+            "encounter_no": 2,
+            "date": "2016-02-20",
+            "type": "General Practice",
+            "provider": "GP",
+            "diagnosis": "Stable RA on MTX",
+            "medications": [
+              "Methotrexate 10mg weekly",
+              "Folic Acid 5mg weekly"
+            ],
+            "notes": "Good RA control on MTX 10 mg weekly; no MTX side effects"
+          },
+          {
+            "encounter_no": 3,
+            "date": "2018-09-05",
+            "type": "General Practice",
+            "provider": "GP",
+            "diagnosis": "New essential hypertension; RA stable; plan MTX dose increase",
+            "medications": [
+              "Methotrexate 20mg weekly",
+              "Folic Acid 5mg weekly",
+              "Lisinopril 10mg daily"
+            ],
+            "notes": "Elevated BP readings 145–155/90–95; MTX increased to 20mg"
+          },
+          {
+            "encounter_no": 4,
+            "date": "2021-03-15",
+            "type": "General Practice",
+            "provider": "GP",
+            "diagnosis": "Stable RA; controlled HTN; mild CKD (stable)",
+            "medications": [
+              "Methotrexate 20mg weekly",
+              "Folic Acid 5mg weekly",
+              "Lisinopril 10mg daily"
+            ],
+            "notes": "Overall well; RA controlled on MTX 20 mg; BP controlled"
+          },
+          {
+            "encounter_no": 5,
+            "date": "2025-06-15",
+            "type": "General Practice",
+            "provider": "GP",
+            "diagnosis": "Acute bacterial sinusitis; RA/HTN/CKD stable",
+            "medications": [
+              "Trimethoprim-Sulfamethoxazole 800/160mg BID"
+            ],
+            "notes": "5 days nasal congestion, facial pain, headache, green discharge"
+          },
+          {
+            "encounter_no": 6,
+            "date": "2025-06-21",
+            "type": "Emergency Medicine",
+            "provider": "Dr. Sarah Chen",
+            "diagnosis": "Acute liver injury likely DILI and/or severe methotrexate toxicity",
+            "medications": [],
+            "notes": "Severe fatigue, jaundice, epigastric pain, confusion"
+          }
+        ],
+        "medicationTimeline": [
+          {
+            "name": "Methotrexate",
+            "startDate": "2015-08-10",
+            "endDate": "2018-09-05",
+            "dose": "10mg weekly",
+            "indication": "RA"
+          },
+          {
+            "name": "Methotrexate",
+            "startDate": "2018-09-05",
+            "dose": "20mg weekly",
+            "indication": "RA"
+          },
+          {
+            "name": "Folic Acid",
+            "startDate": "2015-08-10",
+            "dose": "5mg weekly",
+            "indication": "MTX supplementation"
+          },
+          {
+            "name": "Lisinopril",
+            "startDate": "2018-09-05",
+            "dose": "10mg daily",
+            "indication": "Hypertension"
+          },
+          {
+            "name": "Trimethoprim-Sulfamethoxazole",
+            "startDate": "2025-06-15",
+            "endDate": "2025-06-25",
+            "dose": "800/160mg BID",
+            "indication": "Acute bacterial sinusitis"
+          }
+        ]
+      }
+    },
+    "createdAt": "2025-10-14T16:47:56.098Z",
+    "updatedAt": "2025-10-14T16:47:56.098Z"
+  },
+  {
+    "id": "dashboard-item-1759906219477-adverse-event-analytics",
+    "type": "component",
+    "x": 100,
+    "y": 1500,
+    "width": 1600,
+    "height": "auto",
+    "componentType": "AdverseEventAnalytics",
+    "color": "#ffffff",
+    "description": "",
+    "content": {
+      "title": "Adverse Event Analytics",
+      "component": "AdverseEventAnalytics",
+      "props": {
+        "patientData": {
+          "adverseEvents": [
+            {
+              "event": "DILI",
+              "severity": "High",
+              "description": "High risk for liver injury due to MTX reintroduction without adequate monitoring"
+            },
+            {
+              "event": "RUCAM",
+              "severity": "Moderate",
+              "description": "Potential synergistic hepatotoxic effects"
+            }
+          ]
+        }
+      }
+    },
+    "createdAt": "2025-10-14T16:50:19.477Z",
+    "updatedAt": "2025-10-14T16:50:19.477Z"
+  },
+  {
+    "id": "dashboard-item-1759906246155-lab-table",
+    "type": "component",
+    "x": 100,
+    "y": 2850,
+    "width": 520,
+    "height": 500,
+    "componentType": "LabTable",
+    "color": "#ffffff",
+    "description": "",
+    "content": {
+      "title": "Lab Findings",
+      "component": "LabTable",
+      "props": {
+        "encounters": [
+          {
+            "encounter_no": 1,
+            "date": "2015-08-10",
+            "meta": {
+              "ui_risk_color": "green"
+            }
+          },
+          {
+            "encounter_no": 2,
+            "date": "2016-02-20",
+            "meta": {
+              "ui_risk_color": "green"
+            }
+          },
+          {
+            "encounter_no": 3,
+            "date": "2018-09-05",
+            "meta": {
+              "ui_risk_color": "green"
+            }
+          },
+          {
+            "encounter_no": 4,
+            "date": "2021-03-15",
+            "meta": {
+              "ui_risk_color": "green"
+            }
+          },
+          {
+            "encounter_no": 5,
+            "date": "2025-06-15",
+            "meta": {
+              "ui_risk_color": "amber"
+            }
+          },
+          {
+            "encounter_no": 6,
+            "date": "2025-06-21",
+            "meta": {
+              "ui_risk_color": "red",
+              "event_tags": [
+                "Suspected DILI",
+                "Potential MTX toxicity",
+                "Acute liver failure risk"
+              ]
+            }
+          }
+        ]
+      }
+    },
+    "createdAt": "2025-10-14T16:50:46.155Z",
+    "updatedAt": "2025-10-14T16:50:46.155Z"
+  },
+  {
+    "id": "dashboard-item-1759906246156-lab-chart",
+    "type": "component",
+    "x": 670,
+    "y": 2850,
+    "width": 520,
+    "height": 500,
+    "componentType": "LabChart",
+    "color": "#ffffff",
+    "description": "",
+    "content": {
+      "title": "Lab Trends",
+      "component": "LabChart",
+      "props": {
+        "encounters": [
+          {
+            "encounter_no": 1,
+            "date": "2015-08-10",
+            "meta": {
+              "ui_risk_color": "green"
+            }
+          },
+          {
+            "encounter_no": 2,
+            "date": "2016-02-20",
+            "meta": {
+              "ui_risk_color": "green"
+            }
+          },
+          {
+            "encounter_no": 3,
+            "date": "2018-09-05",
+            "meta": {
+              "ui_risk_color": "green"
+            }
+          },
+          {
+            "encounter_no": 4,
+            "date": "2021-03-15",
+            "meta": {
+              "ui_risk_color": "green"
+            }
+          },
+          {
+            "encounter_no": 5,
+            "date": "2025-06-15",
+            "meta": {
+              "ui_risk_color": "amber"
+            }
+          },
+          {
+            "encounter_no": 6,
+            "date": "2025-06-21",
+            "meta": {
+              "ui_risk_color": "red",
+              "event_tags": [
+                "Suspected DILI",
+                "Potential MTX toxicity"
+              ]
+            }
+          }
+        ],
+        "medicationTimeline": [
+          {
+            "name": "Methotrexate",
+            "start": "2015-08-10",
+            "dose": "10mg weekly"
+          },
+          {
+            "name": "Methotrexate",
+            "start": "2018-09-05",
+            "dose": "20mg weekly"
+          },
+          {
+            "name": "Lisinopril",
+            "start": "2018-09-05",
+            "dose": "10mg daily"
+          },
+          {
+            "name": "Trimethoprim-Sulfamethoxazole",
+            "start": "2025-06-15",
+            "end": "2025-06-25",
+            "dose": "800/160mg BID"
+          }
+        ]
+      }
+    },
+    "createdAt": "2025-10-14T16:50:46.156Z",
+    "updatedAt": "2025-10-14T16:50:46.156Z"
+  },
+  {
+    "id": "dashboard-item-1759906246157-differential-diagnosis",
+    "type": "component",
+    "x": 1240,
+    "y": 2850,
+    "width": 520,
+    "height": 500,
+    "componentType": "DifferentialDiagnosis",
+    "color": "#ffffff",
+    "description": "",
+    "content": {
+      "title": "Differential Diagnosis",
+      "component": "DifferentialDiagnosis",
+      "props": {
+        "patientData": {
+          "encounters": [
+            {
+              "encounter_no": 6,
+              "assessment": {
+                "impression": "Acute liver injury likely DILI and/or severe methotrexate toxicity",
+                "differential": [
+                  "Severe methotrexate toxicity (± pancytopenia, hepatic/renal injury)",
+                  "TMP-SMX–induced DILI",
+                  "Acute viral hepatitis",
+                  "Acute decompensation of undiagnosed chronic liver disease",
+                  "Sepsis with multiorgan dysfunction"
+                ]
+              },
+              "rucam_ctcae_analysis": {
+                "rucam": {
+                  "rows": [
+                    [
+                      "5",
+                      "Exclusion of non-drug causes",
+                      "viral hepatitis pending",
+                      "+2",
+                      "Awaiting serology"
+                    ]
+                  ]
+                },
+                "reasoning": "no autoimmune or metabolic history; no fever or hemodynamic instability"
+              }
+            }
+          ]
+        }
+      }
+    },
+    "createdAt": "2025-10-14T16:50:46.157Z",
+    "updatedAt": "2025-10-14T16:50:46.157Z"
+  },
+  {
+    "id": "dashboard-item-1759906300003-single-encounter-1",
+    "type": "component",
+    "x": 2600,
+    "y": 100,
+    "width": 400,
+    "height": 500,
+    "componentType": "SingleEncounterDocument",
+    "color": "#ffffff",
+    "description": "",
+    "content": {
+      "title": "Encounter #1 - Initial Consult",
+      "component": "SingleEncounterDocument",
+      "props": {
+        "encounter": {
+          "encounter_no": 1,
+          "meta": {
+            "visit_type": "Outpatient",
+            "date_time": "2015-08-10T11:00:00",
+            "provider": {
+              "name": "Dr. Elizabeth Hayes",
+              "specialty": "Rheumatology (Initial Consult)"
+            },
+            "ui_risk_color": "green"
+          },
+          "reason_for_visit": "Initial rheumatology consult",
+          "chief_complaint": "Bilateral joint pain and swelling.",
+          "hpi": "53-year-old retired carpenter with 6 months progressive symmetrical small-joint pain/swelling (hands/feet), morning stiffness >60 min, fatigue, limited NSAID relief.",
+          "medications_prior": [
+            {
+              "name": "Ibuprofen",
+              "dose": "200 mg",
+              "route": "PO",
+              "frequency": "PRN",
+              "indication": "Joint pain"
+            }
+          ],
+          "physical_exam": {
+            "general": "Fatigued but comfortable, NAD",
+            "msk": "Bilateral swelling/tenderness MCPs 2-3, PIPs 2-3, MTPs 2-3; synovitis; reduced grip"
+          },
+          "assessment": {
+            "impression": "Seropositive Rheumatoid Arthritis (active)",
+            "differential": [
+              "Psoriatic Arthritis",
+              "Systemic Lupus Erythematosus"
+            ]
+          },
+          "plan": {
+            "investigations": {
+              "labs": [
+                "RF",
+                "Anti-CCP",
+                "CBC",
+                "LFTs"
+              ]
+            },
+            "management": {
+              "medications_started": [
+                {
+                  "name": "Methotrexate",
+                  "dose": "10 mg",
+                  "route": "PO",
+                  "frequency": "weekly"
+                }
+              ]
+            }
+          }
+        },
+        "patient": {
+          "name": "Sarah Miller",
+          "sex": "Female",
+          "age_at_first_encounter": 53
+        },
+        "encounterIndex": 0,
+        "dataSource": "Nervecentre"
+      }
+    },
+    "createdAt": "2025-10-14T16:55:00.003Z",
+    "updatedAt": "2025-10-14T16:55:00.003Z"
+  },
+  {
+    "id": "dashboard-item-1759906300004-single-encounter-2",
+    "type": "component",
+    "x": 3200,
+    "y": 100,
+    "width": 500,
+    "height": 600,
+    "componentType": "SingleEncounterDocument",
+    "color": "#ffffff",
+    "description": "",
+    "content": {
+      "title": "Encounter #2 - Outpatient Review",
+      "component": "SingleEncounterDocument",
+      "props": {
+        "encounter": {
+          "encounter_no": 2,
+          "meta": {
+            "visit_type": "Outpatient",
+            "date_time": "2016-02-20T09:30:00",
+            "provider": {
+              "name": null,
+              "specialty": "General Practice"
+            },
+            "ui_risk_color": "green"
+          },
+          "reason_for_visit": "Routine MTX monitoring and RA review",
+          "chief_complaint": "Routine medication monitoring; RA follow-up",
+          "hpi": "Good RA control on MTX 10 mg weekly; no MTX side effects; occasional joint aches; adherent to MTX and folic acid; no new concerns.",
+          "medications_prior": [
+            {
+              "name": "Methotrexate",
+              "dose": "10 mg",
+              "route": "PO",
+              "frequency": "weekly"
+            },
+            {
+              "name": "Folic Acid",
+              "dose": "5 mg",
+              "route": "PO",
+              "frequency": "weekly"
+            },
+            {
+              "name": "Paracetamol",
+              "dose": null,
+              "route": "PO",
+              "frequency": "PRN"
+            }
+          ],
+          "physical_exam": {
+            "general": "Well; no jaundice",
+            "msk": "No active synovitis; mild residual hand deformities",
+            "vitals": "BP 132/80, HR 70, RR 16, Temp 36.7°C"
+          },
+          "assessment": {
+            "impression": "Stable RA on MTX",
+            "differential": []
+          },
+          "plan": {
+            "investigations": {
+              "labs": [
+                "CBC",
+                "LFTs",
+                "Renal function (Creatinine, eGFR)"
+              ]
+            },
+            "management": {
+              "medications_started": [],
+              "education": [
+                "Continue Methotrexate 10 mg weekly and Folic Acid 5 mg weekly",
+                "Strict alcohol avoidance while on MTX",
+                "Smoking cessation encouraged; referral offered"
+              ]
+            }
+          }
+        },
+        "patient": {
+          "name": "Sarah Miller",
+          "sex": "Female",
+          "age_at_first_encounter": 53
+        },
+        "encounterIndex": 1,
+        "dataSource": "Medilogik"
+      }
+    },
+    "createdAt": "2025-10-15T08:00:00.000Z",
+    "updatedAt": "2025-10-15T08:00:00.000Z"
+  },
+  {
+    "id": "dashboard-item-1759906300004-single-encounter-3",
+    "type": "component",
+    "x": 3900,
+    "y": 100,
+    "width": 500,
+    "height": 600,
+    "componentType": "SingleEncounterDocument",
+    "color": "#ffffff",
+    "description": "",
+    "content": {
+      "title": "Encounter #3 - Outpatient (Elevated BP)",
+      "component": "SingleEncounterDocument",
+      "props": {
+        "encounter": {
+          "encounter_no": 3,
+          "meta": {
+            "visit_type": "Outpatient",
+            "date_time": "2018-09-05T10:00:00",
+            "provider": {
+              "name": null,
+              "specialty": "General Practice"
+            },
+            "ui_risk_color": "green"
+          },
+          "reason_for_visit": "Routine review; elevated blood pressure",
+          "chief_complaint": "Raised BP readings at home",
+          "hpi": "BP 145–155/90–95; asymptomatic. RA well-controlled on MTX 10 mg but specialist advised increase to 20 mg for mild flares. Quit smoking in 2017; continues 1–2 beers/day.",
+          "medications_prior": [
+            {
+              "name": "Methotrexate",
+              "dose": "10 mg",
+              "route": "PO",
+              "frequency": "weekly"
+            },
+            {
+              "name": "Folic Acid",
+              "dose": "5 mg",
+              "route": "PO",
+              "frequency": "weekly"
+            },
+            {
+              "name": "Paracetamol",
+              "dose": null,
+              "route": "PO",
+              "frequency": "PRN"
+            }
+          ],
+          "physical_exam": {
+            "general": "Well",
+            "vitals": "BP 148/92, HR 72, RR 16, Temp 36.8°C",
+            "cvs": "Normal S1/S2, no murmurs",
+            "msk": "No active synovitis"
+          },
+          "assessment": {
+            "impression": "New essential hypertension; RA stable; plan MTX dose increase",
+            "differential": []
+          },
+          "plan": {
+            "investigations": {
+              "labs": [
+                "CBC",
+                "LFTs",
+                "Creatinine",
+                "eGFR"
+              ]
+            },
+            "management": {
+              "medications_started": [
+                {
+                  "name": "Lisinopril",
+                  "dose": "10 mg",
+                  "route": "PO",
+                  "frequency": "daily"
+                },
+                {
+                  "name": "Methotrexate",
+                  "dose": "20 mg",
+                  "route": "PO",
+                  "frequency": "weekly"
+                }
+              ],
+              "education": [
+                "Lisinopril side effects (e.g., cough); monitor BP regularly",
+                "Reinforce alcohol moderation with higher MTX dose",
+                "Continue Folic Acid the day after MTX"
+              ]
+            }
+          }
+        },
+        "patient": {
+          "name": "Sarah Miller",
+          "sex": "Female",
+          "age_at_first_encounter": 53
+        },
+        "encounterIndex": 2,
+        "dataSource": "Viper"
+      }
+    },
+    "createdAt": "2025-10-15T08:00:00.000Z",
+    "updatedAt": "2025-10-15T08:00:00.000Z"
+  },
+  {
+    "id": "dashboard-item-1759906300004-single-encounter-4",
+    "type": "component",
+    "x": 4600,
+    "y": 100,
+    "width": 500,
+    "height": 600,
+    "componentType": "SingleEncounterDocument",
+    "color": "#ffffff",
+    "description": "",
+    "content": {
+      "title": "Encounter #4 - Outpatient (Chronic Review)",
+      "component": "SingleEncounterDocument",
+      "props": {
+        "encounter": {
+          "encounter_no": 4,
+          "meta": {
+            "visit_type": "Outpatient",
+            "date_time": "2021-03-15T09:00:00",
+            "provider": {
+              "name": null,
+              "specialty": "General Practice"
+            },
+            "ui_risk_color": "green"
+          },
+          "reason_for_visit": "Routine chronic disease review (RA, HTN)",
+          "chief_complaint": "Routine follow-up for RA/HTN",
+          "hpi": "Overall well; RA controlled on MTX 20 mg; BP controlled on Lisinopril; occasional low back pain; eGFR mildly declined but stable; continues 1–2 beers/day.",
+          "medications_prior": [
+            {
+              "name": "Methotrexate",
+              "dose": "20 mg",
+              "route": "PO",
+              "frequency": "weekly"
+            },
+            {
+              "name": "Folic Acid",
+              "dose": "5 mg",
+              "route": "PO",
+              "frequency": "weekly (next day after MTX)"
+            },
+            {
+              "name": "Lisinopril",
+              "dose": "10 mg",
+              "route": "PO",
+              "frequency": "daily"
+            },
+            {
+              "name": "Paracetamol",
+              "dose": null,
+              "route": "PO",
+              "frequency": "PRN"
+            }
+          ],
+          "physical_exam": {
+            "general": "Fit/well",
+            "vitals": "BP 130/82, HR 68, RR 16, Temp 36.7°C",
+            "msk": "No synovitis",
+            "abdomen": "Soft, non-tender"
+          },
+          "assessment": {
+            "impression": "Stable RA; controlled HTN; chronic mild low back pain; mild CKD (stable)",
+            "differential": []
+          },
+          "plan": {
+            "investigations": {
+              "labs": [
+                "CBC",
+                "LFTs",
+                "Creatinine",
+                "eGFR"
+              ]
+            },
+            "management": {
+              "medications_started": [],
+              "education": [
+                "Continue MTX 20 mg weekly, Folic Acid 5 mg weekly, Lisinopril 10 mg daily",
+                "Hydration importance with CKD and ACE inhibitor",
+                "Alcohol moderation reinforced"
+              ]
+            }
+          }
+        },
+        "patient": {
+          "name": "Sarah Miller",
+          "sex": "Female",
+          "age_at_first_encounter": 53
+        },
+        "encounterIndex": 3,
+        "dataSource": "ICE"
+      }
+    },
+    "createdAt": "2025-10-15T08:00:00.000Z",
+    "updatedAt": "2025-10-15T08:00:00.000Z"
+  },
+  {
+    "id": "dashboard-item-1759906300004-single-encounter-5",
+    "type": "component",
+    "x": 5200,
+    "y": 100,
+    "width": 500,
+    "height": 600,
+    "componentType": "SingleEncounterDocument",
+    "color": "#ffffff",
+    "description": "",
+    "content": {
+      "title": "Encounter #5 - Outpatient (Sinusitis)",
+      "component": "SingleEncounterDocument",
+      "props": {
+        "encounter": {
+          "encounter_no": 5,
+          "meta": {
+            "visit_type": "Outpatient",
+            "date_time": "2025-06-15T10:30:00",
+            "provider": {
+              "name": null,
+              "specialty": "General Practice"
+            },
+            "ui_risk_color": "amber",
+            "ui_flags": [
+              "New potentially hepatotoxic/interactive drug (TMP-SMX) started while on MTX"
+            ]
+          },
+          "reason_for_visit": "Sinusitis symptoms",
+          "chief_complaint": "Facial pain, congestion, purulent nasal discharge",
+          "hpi": "5 days nasal congestion, facial pain, headache, green discharge; worse bending forward; afebrile; RA controlled; adherent to meds; requests antibiotics.",
+          "medications_prior": [
+            {
+              "name": "Methotrexate",
+              "dose": "20 mg",
+              "route": "PO",
+              "frequency": "weekly with Folic Acid next day"
+            },
+            {
+              "name": "Lisinopril",
+              "dose": "10 mg",
+              "route": "PO",
+              "frequency": "daily"
+            },
+            {
+              "name": "Paracetamol",
+              "dose": null,
+              "route": "PO",
+              "frequency": "PRN"
+            }
+          ],
+          "physical_exam": {
+            "general": "NAD",
+            "ent": "Maxillary tenderness; congested nasal mucosa with mucopurulent discharge; oropharynx clear",
+            "vitals": "BP 135/85, HR 72, RR 16, Temp 37.0°C"
+          },
+          "assessment": {
+            "impression": "Acute bacterial sinusitis; RA/HTN/CKD stable",
+            "differential": []
+          },
+          "plan": {
+            "investigations": {
+              "labs": []
+            },
+            "management": {
+              "medications_started": [
+                {
+                  "name": "Trimethoprim-Sulfamethoxazole",
+                  "dose": "800/160 mg",
+                  "route": "PO",
+                  "frequency": "BID",
+                  "duration_days": 10
+                }
+              ],
+              "education": [
+                "Potential side effects of TMP-SMX",
+                "Seek care if symptoms worsen or new symptoms develop"
+              ]
+            }
+          }
+        },
+        "patient": {
+          "name": "Sarah Miller",
+          "sex": "Female",
+          "age_at_first_encounter": 53
+        },
+        "encounterIndex": 4,
+        "dataSource": "BigHand"
+      }
+    },
+    "createdAt": "2025-10-15T08:00:00.000Z",
+    "updatedAt": "2025-10-15T08:00:00.000Z"
+  },
+  {
+    "id": "dashboard-item-1759906300004-single-encounter-6",
+    "type": "component",
+    "x": 5800,
+    "y": 100,
+    "width": 500,
+    "height": 600,
+    "componentType": "SingleEncounterDocument",
+    "color": "#ffffff",
+    "description": "",
+    "content": {
+      "title": "Encounter #6 - Emergency Visit",
+      "component": "SingleEncounterDocument",
+      "props": {
+        "encounter": {
+          "encounter_no": 6,
+          "meta": {
+            "visit_type": "ED",
+            "date_time": "2025-06-21T14:00:00",
+            "provider": {
+              "name": "Dr. Sarah Chen",
+              "specialty": "Emergency Medicine"
+            },
+            "ui_risk_color": "red",
+            "event_tags": [
+              "Suspected DILI",
+              "Potential MTX toxicity",
+              "Acute liver failure risk"
+            ]
+          },
+          "reason_for_visit": "Severe fatigue, jaundice, epigastric pain, confusion",
+          "chief_complaint": "Severe fatigue, jaundice, epigastric pain, confusion",
+          "hpi": "63-year-old male with 24h severe fatigue, jaundice, epigastric pain; 4–6 days prior noted fatigue, mouth ulcers, nausea; started TMP-SMX 6 days ago for sinusitis",
+          "medications_prior": [
+            {
+              "name": "Methotrexate",
+              "dose": "20 mg",
+              "route": "PO",
+              "frequency": "weekly"
+            },
+            {
+              "name": "Trimethoprim-Sulfamethoxazole",
+              "dose": "800/160 mg",
+              "route": "PO",
+              "frequency": "BID"
+            }
+          ],
+          "physical_exam": {
+            "general": "Jaundiced, fatigued, drowsy; disoriented to time/place",
+            "abdomen": "Soft, non-distended; mild epigastric tenderness",
+            "cns": "Arousable; PERL; slow commands; asterixis present; GCS 13"
+          },
+          "assessment": {
+            "impression": "Acute liver injury likely DILI and/or severe methotrexate toxicity",
+            "differential": [
+              "Severe methotrexate toxicity",
+              "TMP-SMX–induced DILI",
+              "Acute viral hepatitis"
+            ]
+          },
+          "plan": {
+            "investigations": {
+              "labs": [
+                "CBC",
+                "CMP",
+                "Methotrexate level (urgent)",
+                "HAV IgM",
+                "HBsAg"
+              ]
+            },
+            "management": {
+              "medications_started": [],
+              "education": [
+                "Immediate ICU admission",
+                "N-acetylcysteine protocol"
+              ]
+            }
+          }
+        },
+        "patient": {
+          "name": "Sarah Miller",
+          "sex": "Female",
+          "age_at_first_encounter": 53
+        },
+        "encounterIndex": 5,
+        "dataSource": "VueExplore"
+      }
+    },
+    "createdAt": "2025-10-14T16:55:00.004Z",
+    "updatedAt": "2025-10-14T16:55:00.004Z"
+  },
+  {
+    "id": "item-1760513346936-871w01",
+    "type": "agent",
+    "x": 1140,
+    "y": 929,
+    "width": 520,
+    "height": 362,
+    "content": "# Clinical Assessment\n\n## Key Findings\n- Patient shows improvement\n- Vital signs stable\n- Continue current treatment\n\n## Recommendations\n- Follow-up in 2 weeks\n- Monitor lab results",
+    "color": "#ffffff",
+    "rotation": 0,
+    "agentData": {
+      "title": "Patient Assessment",
+      "markdown": "# Clinical Assessment\n\n## Key Findings\n- Patient shows improvement\n- Vital signs stable\n- Continue current treatment\n\n## Recommendations\n- Follow-up in 2 weeks\n- Monitor lab results"
+    },
+    "createdAt": "2025-10-15T07:29:06.936Z",
+    "updatedAt": "2025-10-15T07:29:07.074Z"
+  }
+]

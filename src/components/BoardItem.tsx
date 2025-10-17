@@ -511,9 +511,18 @@ const BoardItem = ({
           case 'todo':
             const todo = item.todoData || { title: 'Todos', description: '', todos: [] };
             const total = (todo.todos || []).length;
-            const done = (todo.todos || []).filter((t) => t.status === 'done').length;
+            const done = (todo.todos || []).filter((t) => t.status === 'done' || t.status === 'finished').length;
             const progressPct = total > 0 ? Math.round((done / total) * 100) : 0;
-            const statusColor = (status) => status === 'done' ? '#10b981' : status === 'in_progress' ? '#f59e0b' : '#64748b';
+            const statusColor = (status: string) => {
+              if (status === 'done' || status === 'finished') return '#10b981';
+              if (status === 'in_progress' || status === 'executing') return '#f59e0b';
+              return '#64748b';
+            };
+            const statusText = (status: string) => {
+              if (status === 'done' || status === 'finished') return 'DONE';
+              if (status === 'in_progress' || status === 'executing') return 'DOING';
+              return 'TODO';
+            };
             return (
               <TodoCard>
                 <TodoHeader>
@@ -529,12 +538,69 @@ const BoardItem = ({
                   </ProgressBar>
                   <TodoList>
                     {(todo.todos || []).map((t, idx) => (
-                      <TodoItem key={idx}>
-                        <span>{t.text}</span>
-                        <StatusChip style={{ background: statusColor(t.status) }}>
-                          {t.status === 'done' ? 'DONE' : t.status === 'in_progress' ? 'DOING' : 'TODO'}
-                        </StatusChip>
-                      </TodoItem>
+                      <div key={idx}>
+                        {/* Main todo item */}
+                        <TodoItem>
+                          <div style={{ display: 'flex', flexDirection: 'column', gap: '4px', flex: 1 }}>
+                            <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                              <span>{t.text}</span>
+                              {t.id && (
+                                <span style={{ 
+                                  fontSize: '9px', 
+                                  color: '#94a3b8', 
+                                  fontFamily: 'monospace',
+                                  background: '#f1f5f9',
+                                  padding: '2px 6px',
+                                  borderRadius: '4px',
+                                  border: '1px solid #e2e8f0'
+                                }}>
+                                  ID: {t.id.split('-').pop()}
+                                </span>
+                              )}
+                            </div>
+                            {t.agent && (
+                              <div style={{ 
+                                fontSize: '10px', 
+                                color: '#64748b', 
+                                fontStyle: 'italic',
+                                display: 'flex',
+                                alignItems: 'center',
+                                gap: '4px'
+                              }}>
+                                🤖 Delegated to: <strong>{t.agent}</strong>
+                              </div>
+                            )}
+                          </div>
+                          <StatusChip style={{ background: statusColor(t.status) }}>
+                            {statusText(t.status)}
+                          </StatusChip>
+                        </TodoItem>
+                        
+                        {/* Sub-todos */}
+                        {t.subTodos && t.subTodos.length > 0 && (
+                          <div style={{ marginLeft: '20px', marginTop: '4px' }}>
+                            {t.subTodos.map((subTodo, subIdx) => (
+                              <TodoItem key={subIdx} style={{ 
+                                background: '#f1f5f9', 
+                                border: '1px solid #e2e8f0',
+                                marginBottom: '4px',
+                                fontSize: '11px'
+                              }}>
+                                <div style={{ display: 'flex', flexDirection: 'column', gap: '2px', flex: 1 }}>
+                                  <span style={{ color: '#475569' }}>• {subTodo.text}</span>
+                                </div>
+                                <StatusChip style={{ 
+                                  background: statusColor(subTodo.status),
+                                  fontSize: '10px',
+                                  padding: '1px 6px'
+                                }}>
+                                  {statusText(subTodo.status)}
+                                </StatusChip>
+                              </TodoItem>
+                            ))}
+                          </div>
+                        )}
+                      </div>
                     ))}
                   </TodoList>
                 </TodoBody>

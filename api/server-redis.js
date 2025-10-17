@@ -308,6 +308,131 @@ app.post('/api/todos', async (req, res) => {
   }
 });
 
+// POST /api/enhanced-todo - Create enhanced todo with agent delegation
+app.post('/api/enhanced-todo', async (req, res) => {
+  try {
+    const { 
+      title, 
+      description,
+      todos,
+      x, 
+      y, 
+      width = 450, 
+      height = 'auto',
+      color = '#ffffff',
+      dataSource = 'Manual Entry'
+    } = req.body;
+
+    // Validate required fields
+    if (!title || !todos || !Array.isArray(todos)) {
+      return res.status(400).json({
+        error: 'title and todos array are required'
+      });
+    }
+
+    // Validate and generate IDs for todo items
+    for (let i = 0; i < todos.length; i++) {
+      const todo = todos[i];
+      
+      if (!todo.text || !todo.status || !todo.agent) {
+        return res.status(400).json({
+          error: 'Each main todo item must have text, status, and agent fields'
+        });
+      }
+      if (!['pending', 'executing', 'finished'].includes(todo.status)) {
+        return res.status(400).json({
+          error: 'Todo status must be one of: pending, executing, finished'
+        });
+      }
+      
+      // Generate unique task ID if not provided
+      if (!todo.id) {
+        const taskId = `task-${Date.now()}-${Math.random().toString(36).substr(2, 6)}-${i}`;
+        todo.id = taskId;
+        console.log(`🔧 Generated task ID: ${taskId} for task: ${todo.text}`);
+      } else {
+        console.log(`✅ Using provided task ID: ${todo.id} for task: ${todo.text}`);
+      }
+      
+      // Ensure the ID is set in the todos array
+      todos[i] = todo;
+      
+      // Validate sub-todos if they exist
+      if (todo.subTodos && Array.isArray(todo.subTodos)) {
+        for (const subTodo of todo.subTodos) {
+          if (!subTodo.text || !subTodo.status) {
+            return res.status(400).json({
+              error: 'Each sub-todo item must have text and status fields'
+            });
+          }
+          if (!['pending', 'executing', 'finished'].includes(subTodo.status)) {
+            return res.status(400).json({
+              error: 'Sub-todo status must be one of: pending, executing, finished'
+            });
+          }
+        }
+      }
+    }
+
+    // Generate unique ID
+    const id = `enhanced-todo-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`;
+
+    // Create the new enhanced todo item
+    const newItem = {
+      id,
+      type: 'todo',
+      x: x || Math.random() * 8000 + 100,
+      y: y || Math.random() * 7000 + 100,
+      width,
+      height,
+      color,
+      description: description || title,
+      todoData: {
+        title,
+        description: description || '',
+        todos
+      },
+      rotation: 0,
+      createdAt: new Date().toISOString(),
+      updatedAt: new Date().toISOString(),
+    };
+
+    // Load existing items for collision detection
+    const existingItems = await loadBoardItems();
+    console.log(`🔍 Loaded ${existingItems.length} existing items for collision detection`);
+
+    // Find non-overlapping position (using existing helper if available)
+    if (typeof findNonOverlappingPosition === 'function') {
+      const finalPosition = findNonOverlappingPosition(newItem, existingItems);
+      newItem.x = finalPosition.x || Math.random() * 4000 + 200;
+      newItem.y = finalPosition.y || Math.random() * 3000 + 200;
+    }
+
+    console.log(`📍 Positioned new enhanced todo at (${newItem.x}, ${newItem.y})`);
+
+    // Save to board items
+    const updatedItems = [...existingItems, newItem];
+    const saved = await saveBoardItems(updatedItems);
+
+    if (!saved) {
+      console.warn('⚠️  Enhanced todo created but not persisted to Redis');
+    }
+
+    // Broadcast to all connected clients
+    broadcastSSE({ 
+      event: 'new-item', 
+      item: newItem, 
+      timestamp: new Date().toISOString(), 
+      action: 'created' 
+    });
+
+    res.status(201).json(newItem);
+  } catch (error) {
+    console.error('Error creating enhanced todo:', error);
+    res.status(500).json({ error: 'Failed to create enhanced todo' });
+  }
+});
+
 // POST /api/agents - Create agent result
 app.post('/api/agents', async (req, res) => {
   try {
@@ -540,23 +665,58 @@ app.post('/api/components', async (req, res) => {
   }
 });
 
-// POST /api/focus - Focus item
+// POST /api/focus - Focus item (enhanced with sub-element support)
 app.post('/api/focus', (req, res) => {
-  const { objectId } = req.body;
+  const { objectId, subElement, focusOptions } = req.body;
   
   if (!objectId) {
     return res.status(400).json({ error: 'objectId is required' });
   }
   
-  console.log(`🎯 Focus request: ${objectId}`);
+  // Default options - higher zoom for sub-elements
+  const defaultOptions = {
+    zoom: subElement ? 1.5 : 0.8,
+    highlight: !!subElement,
+    duration: 2000,
+    scrollIntoView: true
+  };
   
-  const payload = { objectId, timestamp: new Date().toISOString() };
+  const options = { ...defaultOptions, ...(focusOptions || {}) };
+  
+  console.log(`🎯 Focus request: ${objectId}${subElement ? `#${subElement}` : ''}`);
+  
+  const payload = { 
+    objectId, 
+    subElement: subElement || null,
+    focusOptions: options,
+    timestamp: new Date().toISOString() 
+  };
+  
   broadcastSSE({ event: 'focus-item', ...payload });
   
   res.json({ 
     success: true, 
-    message: `Focusing on item: ${objectId}`,
-    objectId
+    message: `Focusing on item: ${objectId}${subElement ? `#${subElement}` : ''}`,
+    objectId,
+    subElement,
+    focusOptions: options
+  });
+});
+
+// Root API endpoint
+app.get('/api', (req, res) => {
+  res.json({
+    name: 'Canvas Board API',
+    version: '1.0.0',
+    status: 'running',
+    timestamp: new Date().toISOString(),
+    endpoints: {
+      health: '/api/health',
+      boardItems: '/api/board-items',
+      events: '/api/events (SSE)',
+      joinMeeting: '/api/join-meeting'
+    },
+    documentation: 'https://github.com/your-repo/board-v4-working'
   });
 });
 

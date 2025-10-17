@@ -23,3 +23,25 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+/* Sub-element focus highlight animation */
+.focus-highlighted {
+  position: relative;
+  animation: focusPulse 2s ease-in-out;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.6) !important;
+  border-radius: 8px;
+  background: rgba(59, 130, 246, 0.1) !important;
+  z-index: 1000;
+  transition: all 0.3s ease;
+}
+
+@keyframes focusPulse {
+  0%, 100% {
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.6);
+    transform: scale(1);
+  }
+  50% {
+    box-shadow: 0 0 0 8px rgba(59, 130, 246, 0.3);
+    transform: scale(1.02);
+  }
+}

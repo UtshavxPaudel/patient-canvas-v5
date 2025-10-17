@@ -197,12 +197,37 @@ function BoardApp() {
     const item = items.find(i => i.id === request.objectId);
     if (item) {
       console.log('✅ Item found, focusing:', item.id, item.type);
+      
       // First select the item
       focusOnItem(request.objectId);
-      // Then center the viewport on it (using default settings from Canvas component)
+      
+      // Get focus options
+      const zoom = request.focusOptions?.zoom || 0.8;
+      const duration = request.focusOptions?.duration || 3000;
+      
+      // Center the viewport on it
       if ((window as any).centerOnItem) {
-        console.log('🚀 Calling centerOnItem with:', request.objectId);
-        (window as any).centerOnItem(request.objectId, 0.8, 3000);
+        console.log('🚀 Calling centerOnItem with:', request.objectId, 'zoom:', zoom);
+        (window as any).centerOnItem(request.objectId, zoom, duration);
+        
+        // If sub-element specified, highlight it after animation completes
+        if (request.subElement && request.focusOptions?.highlight) {
+          console.log('🎨 Will highlight sub-element:', request.subElement);
+          setTimeout(() => {
+            const itemElement = document.querySelector(`[data-item-id="${request.objectId}"]`);
+            const subElement = itemElement?.querySelector(`[data-focus-id="${request.subElement}"]`);
+            
+            if (subElement) {
+              console.log('✨ Highlighting sub-element');
+              subElement.classList.add('focus-highlighted');
+              setTimeout(() => {
+                subElement.classList.remove('focus-highlighted');
+              }, 2000);
+            } else {
+              console.warn('⚠️ Sub-element not found:', request.subElement);
+            }
+          }, duration);
+        }
       } else {
         console.error('❌ centerOnItem function not available on window');
       }

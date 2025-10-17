@@ -49,5 +49,133 @@
     },
     "createdAt": "2025-10-09T21:28:56.726Z",
     "updatedAt": "2025-10-09T21:28:56.752Z"
+  },
+  {
+    "id": "enhanced-todo-001-2025-10-22",
+    "type": "todo",
+    "x": 1000,
+    "y": 100,
+    "width": 450,
+    "height": "auto",
+    "color": "#ffffff",
+    "description": "Enhanced todo list with agent delegation",
+    "todoData": {
+      "title": "Patient Care Coordination Tasks",
+      "description": "Critical tasks for patient care coordination with AI agent delegation",
+      "todos": [
+        {
+          "id": "task-001",
+          "text": "Review patient's latest lab results and identify any critical values",
+          "status": "executing",
+          "agent": "Lab Analysis Agent"
+        },
+        {
+          "id": "task-002",
+          "text": "Generate medication reconciliation report for the patient",
+          "status": "pending",
+          "agent": "Medication Management Agent"
+        },
+        {
+          "id": "task-003",
+          "text": "Schedule follow-up appointment with cardiology specialist",
+          "status": "finished",
+          "agent": "Scheduling Agent"
+        },
+        {
+          "id": "task-004",
+          "text": "Prepare discharge summary for the patient",
+          "status": "executing",
+          "agent": "Documentation Agent"
+        },
+        {
+          "id": "task-005",
+          "text": "Verify insurance coverage for upcoming procedures",
+          "status": "pending",
+          "agent": "Insurance Verification Agent"
+        }
+      ]
+    },
+    "rotation": 0,
+    "createdAt": "2025-10-22T10:30:00.000Z",
+    "updatedAt": "2025-10-22T10:30:00.000Z"
+  },
+  {
+    "id": "hierarchical-todo-001-2025-10-22",
+    "type": "todo",
+    "x": 1500,
+    "y": 100,
+    "width": 500,
+    "height": "auto",
+    "color": "#ffffff",
+    "description": "Hierarchical todo with sub-tasks",
+    "todoData": {
+      "title": "Patient Admission Workflow",
+      "description": "Comprehensive patient admission process with detailed sub-tasks",
+      "todos": [
+        {
+          "id": "task-101",
+          "text": "Initial Patient Assessment",
+          "status": "executing",
+          "agent": "Assessment Agent",
+          "subTodos": [
+            {
+              "text": "Check vital signs",
+              "status": "finished"
+            },
+            {
+              "text": "Review medical history",
+              "status": "executing"
+            },
+            {
+              "text": "Document chief complaint",
+              "status": "pending"
+            }
+          ]
+        },
+        {
+          "id": "task-102",
+          "text": "Laboratory Testing",
+          "status": "pending",
+          "agent": "Lab Coordination Agent",
+          "subTodos": [
+            {
+              "text": "Order blood work",
+              "status": "pending"
+            },
+            {
+              "text": "Schedule imaging studies",
+              "status": "pending"
+            },
+            {
+              "text": "Collect urine sample",
+              "status": "pending"
+            }
+          ]
+        },
+        {
+          "id": "task-103",
+          "text": "Treatment Planning",
+          "status": "finished",
+          "agent": "Treatment Planning Agent",
+          "subTodos": [
+            {
+              "text": "Consult with specialists",
+              "status": "finished"
+            },
+            {
+              "text": "Develop care plan",
+              "status": "finished"
+            },
+            {
+              "text": "Set treatment goals",
+              "status": "finished"
+            }
+          ]
+        }
+      ]
+    },
+    "rotation": 0,
+    "createdAt": "2025-10-22T11:00:00.000Z",
+    "updatedAt": "2025-10-22T11:00:00.000Z"
   }
 ]
